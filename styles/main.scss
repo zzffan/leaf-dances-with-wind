@@ -1,0 +1,42 @@
+// 全局颜色变量
+$primary-color: #FF6B6B; // 主色调
+$secondary-color: #99CCFF; // 辅助色
+$text-color: #333; // 文本颜色
+$light-gray: #F0F0F0; // 浅灰色背景
+$border-radius: 16px; // 圆角
+$sky-blue: #ECF3FF; // 天蓝色
+$pale-pink: #FEF3F3; // 浅粉色
+
+// 字体相关变量
+$font-family: 'Arial', sans-serif;
+$font-size-title: 24px;
+$font-size-subtitle: 16px;
+$font-size-countdown-value: 36px;
+$font-size-countdown-label: 16px;
+
+// 间距相关变量
+$padding-container: 20px;
+$margin-bottom-item: 20px;
+$gap-between-items: 20px;
+
+$background-gradient: linear-gradient(180deg, #F9F6F6, #F0F8FF); // 从浅粉色到浅蓝色的渐变
+
+// 导出全局变量（可选，用于 JavaScript 中引用）
+:export {
+  primary-color: $primary-color;
+  secondary-color: $secondary-color;
+  text-color: $text-color;
+  light-gray: $light-gray;
+  border-radius: $border-radius;
+  font-family: $font-family;
+  font-size-title: $font-size-title;
+  font-size-subtitle: $font-size-subtitle;
+  font-size-countdown-value: $font-size-countdown-value;
+  font-size-countdown-label: $font-size-countdown-label;
+  padding-container: $padding-container;
+  margin-bottom-item: $margin-bottom-item;
+  gap-between-items: $gap-between-items;
+  background-gradient: $background-gradient;
+  sky-blue: $sky-blue;
+  pale-pink: $pale-pink;
+}
