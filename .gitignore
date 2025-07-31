@@ -8,6 +8,7 @@ unpackage
 
 # dependencies
 node_modules
+uni_modules
 
 # IDEs and editors
 /.idea

@@ -3,7 +3,7 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "婚礼首页",
+        "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
     },
@@ -41,7 +41,7 @@
       },
       {
         "pagePath": "pages/rsvp/index",
-        "text": "RSVP",
+        "text": "回复",
         "iconPath": "static/tabbar/rsvp.png",
         "selectedIconPath": "static/tabbar/rsvp-selected.png"
       },
@@ -62,7 +62,7 @@
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "婚礼小程序",
-    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarBackgroundColor": "#f9f6f6",
     "backgroundColor": "#f8f8f8"
   }
 }

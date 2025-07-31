@@ -3,7 +3,7 @@
 		<!-- 标题和副标题 -->
 		<view class="title">距离大喜之日</view>
 		<view class="subtitle">每一秒都充满期待</view>
-		
+
 		<!-- 倒计时 -->
 		<view class="countdown-container">
 			<view class="countdown-item pink">
@@ -22,7 +22,7 @@
 				<view class="countdown-value">{{ countdown.seconds }}</view>
 				<view class="countdown-label">秒</view>
 			</view>
-		</view>		
+		</view>
 	</view>
 </template>
 
@@ -36,8 +36,7 @@
 	// 接收婚礼日期作为 props
 	const props = defineProps({
 		weddingDate: {
-			type: String,
-			required: true,
+			type: String
 		},
 	});
 
@@ -52,7 +51,7 @@
 	// 更新倒计时
 	function updateCountdown() {
 		const now = dayjs();
-		const target = dayjs(props.weddingDate);
+		const target = dayjs(props.weddingDate || '2025-10-03T00:00:00');
 		const diff = target.diff(now, 'second');
 
 		if (diff <= 0) {

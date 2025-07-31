@@ -6,12 +6,15 @@ $light-gray: #F0F0F0; // 浅灰色背景
 $border-radius: 16px; // 圆角
 $sky-blue: #ECF3FF; // 天蓝色
 $pale-pink: #FEF3F3; // 浅粉色
+$coral-pink: #DBA8A6; // 淡珊瑚色
+$gray-blue: #747A7E;
+$light-steel-blue: #A3B3C6;
 
 // 字体相关变量
 $font-family: 'Arial', sans-serif;
 $font-size-title: 24px;
 $font-size-subtitle: 16px;
-$font-size-countdown-value: 36px;
+$font-size-countdown-value: 26px;
 $font-size-countdown-label: 16px;
 
 // 间距相关变量
@@ -39,4 +42,7 @@ $background-gradient: linear-gradient(180deg, #F9F6F6, #F0F8FF); // 从浅粉色
   background-gradient: $background-gradient;
   sky-blue: $sky-blue;
   pale-pink: $pale-pink;
+  coral-pink: $coral-pink;
+  gray-blue: $gray-blue;
+  light-steel-blue: $light-steel-blue;
 }

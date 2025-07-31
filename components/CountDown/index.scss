@@ -1,5 +1,6 @@
 /* 导入全局变量 */
 @import '../../styles/main.scss';
+@import '../../uni.scss';
 
 .container {
   background-color: #fff;
@@ -17,7 +18,7 @@
 }
 
 .subtitle {
-  color: $secondary-color;
+  color: $uni-color-paragraph;
   font-size: $font-size-subtitle;
   text-align: center;
   margin-bottom: $margin-bottom-item;
@@ -26,7 +27,7 @@
 .countdown-container {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(2, minmax(0px, 1fr));
+  grid-template-columns: repeat(4, minmax(0px, 1fr));
   justify-content: center;
   margin-top: $margin-bottom-item;
 
@@ -34,25 +35,26 @@
     border-radius: $border-radius;
     padding: $padding-container;
     text-align: center;
-    margin-bottom: $margin-bottom-item;
+    // margin-bottom: $margin-bottom-item;
 
     &.pink {
       background-color: $pale-pink;
-      color: #fff;
+      color: $coral-pink;
     }
 
     &.blue {
       background-color: $sky-blue;
-      color: #fff;
+      color: $light-steel-blue;
     }
 
     .countdown-value {
       font-size: $font-size-countdown-value;
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
     }
 
     .countdown-label {
       font-size: $font-size-countdown-label;
+	  color: $gray-blue;
     }
   }
 }

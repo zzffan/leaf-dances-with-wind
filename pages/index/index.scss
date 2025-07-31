@@ -1,0 +1,68 @@
+@import "../../styles/main.scss";
+
+.container {
+	box-sizing: border-box;
+	padding: 20px;
+	height: 100vh;
+	background: $background-gradient;
+	border-radius: $border-radius;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-container {
+	margin-bottom: $margin-bottom-item;
+	font-size: 24px;
+}
+
+.title {
+	color: $primary-color;
+	text-align: center;
+	margin-bottom: $margin-bottom-item;
+}
+
+.subtitle {
+	color: $secondary-color;
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.detail-container {
+	background-color: #fff;
+	border-radius: $border-radius;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: $padding-container;
+	display: flex;
+	flex-direction: column;
+	gap: $margin-bottom-item;
+	margin-bottom: $margin-bottom-item;
+}
+
+.detail-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 20px;
+}
+
+.detail-label {
+	color: #69717d;
+}
+
+.detail-value {
+	color: #e19e9e;
+}
+
+.navigate {
+	color: $uni-color-paragraph;
+}
+
+.invitation {
+	padding: 20px 10px;
+}
+
+.invitation-text {
+	height: 30px;
+	text-align: center;
+	line-height: 20px;
+}
