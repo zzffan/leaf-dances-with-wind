@@ -1,0 +1,98 @@
+@import "../../styles/main.scss";
+	
+.container {
+	box-sizing: border-box;
+	padding: 20px;
+	height: 100vh;
+	overflow: auto;
+	background: $background-gradient;
+	border-radius: $border-radius;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 20px;
+
+	.icon {
+		width: 40px;
+		height: 40px;
+	}
+
+	.subtitle {
+		color: $secondary-color;
+		font-size: $font-size-subtitle;
+	}
+}
+
+.tag-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  .tag {
+	padding: 8px 16px;
+	border-radius: 20px;
+	background-color: $light-gray;
+	color: $text-color;
+	font-size: 14px;
+	transition: all 0.3s;
+
+	&.active {
+	  background-color: $primary-color;
+	  color: #fff;
+	}
+  }
+}
+
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.photo-item {
+  position: relative;
+  width: calc(50% - 10px);
+  overflow: hidden;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  .photo-image {
+	width: 100%;
+	height: 100%;
+	display: block;
+  }
+
+  .photo-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	color: #fff;
+	font-size: 14px;
+
+	.caption-title {
+	  font-size: 14px;
+	  margin-bottom: 4px;
+	  display: block;
+	}
+
+	.caption-subtitle {
+	  font-size: 12px;
+	  opacity: 0.9;
+	}
+  }
+}
+
+.loading, .empty {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+}

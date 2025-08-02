@@ -1,0 +1,1 @@
+cli publish --platform mp-weixin --project leaf-dances-with-wind  --upload true --appid wx0fb133ddf8d9ddd8 --description 测试发布 --version 0.0.2 --privatekey

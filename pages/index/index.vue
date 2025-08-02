@@ -24,7 +24,7 @@
 		
 		<!-- 欢迎语 -->
 		<view class="invitation">
-			<view class="invitation-text" v-for="text,idx in invitationText">
+			<view class="invitation-text" v-for="text,idx in invitationText" :key="index">
 				{{text}}
 			</view>
 		</view>

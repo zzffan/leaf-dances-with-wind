@@ -17,7 +17,7 @@
     {
       "path": "pages/gallery/index",
       "style": {
-        "navigationBarTitleText": "婚礼相册"
+        "navigationBarTitleText": ""
       }
     },
     {
@@ -39,24 +39,24 @@
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/home-selected.png"
       },
-      {
-        "pagePath": "pages/rsvp/index",
-        "text": "回复",
-        "iconPath": "static/tabbar/rsvp.png",
-        "selectedIconPath": "static/tabbar/rsvp-selected.png"
-      },
+      // {
+      //   "pagePath": "pages/rsvp/index",
+      //   "text": "回复",
+      //   "iconPath": "static/tabbar/rsvp.png",
+      //   "selectedIconPath": "static/tabbar/rsvp-selected.png"
+      // },
       {
         "pagePath": "pages/gallery/index",
         "text": "相册",
         "iconPath": "static/tabbar/gallery.png",
         "selectedIconPath": "static/tabbar/gallery-selected.png"
-      },
-      {
-        "pagePath": "pages/schedule/index",
-        "text": "日程",
-        "iconPath": "static/tabbar/schedule.png",
-        "selectedIconPath": "static/tabbar/schedule-selected.png"
       }
+      // {
+      //   "pagePath": "pages/schedule/index",
+      //   "text": "日程",
+      //   "iconPath": "static/tabbar/schedule.png",
+      //   "selectedIconPath": "static/tabbar/schedule-selected.png"
+      // }
     ]
   },
   "globalStyle": {

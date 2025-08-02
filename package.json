@@ -1,5 +1,14 @@
 {
 	"devDependencies": {
 		"dayjs": "^1.11.13"
+	},
+	"browserslist": [
+		"last 2 versions",
+		"> 1%",
+		"not dead",
+		"maintained node versions"
+	],
+	"dependencies": {
+		"update-browserslist-db": "^1.1.3"
 	}
 }

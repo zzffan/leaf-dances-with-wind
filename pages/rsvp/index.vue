@@ -1,19 +1,17 @@
 <template>
-	<view>
-		
+	<view class="container">
+		<view class="static-img"> ❤️ </view>
+		<view class="title">婚礼回复</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				
-			};
-		}
-	}
+<script setup>
+	import {
+		ref,
+		onMounted
+	} from 'vue';
 </script>
 
-<style lang="less">
-
+<style lang="scss" scoped>
+	@import "./index.scss";
 </style>

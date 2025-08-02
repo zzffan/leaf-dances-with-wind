@@ -49,12 +49,12 @@
 
     .countdown-value {
       font-size: $font-size-countdown-value;
-      // margin-bottom: 10px;
     }
 
     .countdown-label {
       font-size: $font-size-countdown-label;
 	  color: $gray-blue;
+	  white-space: nowrap;
     }
   }
 }
