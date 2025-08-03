@@ -8,29 +8,27 @@
 
 		<!-- 标签栏 -->
 		<view class="tag-container">
-			<view v-for="(tag, index) in tags" :key="index" class="tag" :class="{ active: currentTag === tag }"
-				@click="handleTagClick(tag)">
-				{{ tag }}
+			<view v-for="(tag, index) in tags" :key="index" class="tag" :class="{ active: currentTag === tag.value }"
+				@click="handleTagClick(tag.value)">
+				{{ tag.label }}
 			</view>
 		</view>
 
 		<!-- 瀑布流图片 -->
 		<view class="photo-grid">
-			<view v-for="(photo, index) in photoList" :key="photo._id" class="photo-item"
-				:style="{ height: photo.height + 'px' }">
-				<image :src="photo.url" mode="aspectFill" class="photo-image" @load="onImageLoad(index)"
-					@error="onImageError(index)"></image>
-				<view class="photo-caption">
-					<text class="caption-title">{{ photo.title }}</text>
-					<text class="caption-subtitle">{{ photo.subtitle }}</text>
-				</view>
+			<view v-for="(item, index) in photoList" :key="item._id" class="photo-item">
+				<image v-if="item.type === 'img'" :src="item.url" mode="widthFix" class="photo-image"
+					@load="onImageLoad(index)" @error="onImageError(index)"></image>
+
+				<!-- 视频 -->
+				<video v-if="item.type === 'video'" :src="item.url" class="feed-video" :controls="true" />
 			</view>
 		</view>
 
 
 		<!-- 加载状态 -->
 		<view v-if="loading" class="loading">加载中...</view>
-		<view v-if="!loading && photoList.length === 0" class="empty">暂无图片</view>
+		<view v-if="!loading && media.length === 0" class="empty">暂无媒体资源</view>
 	</view>
 </template>
 
@@ -42,9 +40,8 @@
 	} from 'vue';
 
 	const tags = ref([]);
-	const photos = ref([]); // 所有图片数据（含 fileID）
-	const photoUrls = ref({}); // 缓存 fileID -> URL 映射
-	const currentTag = ref('全部');
+	const media = ref([]); // 所有媒体数据（含 fileID）
+	const currentTag = ref('all');
 	const loading = ref(false);
 
 	// 图片高度模拟（可随机或根据宽高比计算）
@@ -52,58 +49,67 @@
 
 	// 计算最终显示的图片列表（含 URL）
 	const photoList = computed(() => {
-		const list = currentTag.value === '全部' ?
-			photos.value :
-			photos.value.filter(p => p.category === currentTag.value);
+		const list = currentTag.value === 'all' ?
+			media.value :
+			media.value.filter(p => p.tag === currentTag.value);
 
-		return list.map(p => ({
-			...p,
-			url: photoUrls.value[p.fileID] || p.placeholder || '/static/loading.png',
-			height: p.height || getRandomHeight()
-		}));
+		return list;
 	});
 
 	// 初始化
 	onMounted(async () => {
-		// await fetchAllData();
+		fetchPhotoTagList();
+		fetchImageData();
 	});
 
+	// 获取相册tags
+	async function fetchPhotoTagList() {
+		loading.value = true;
+		try {
+			const weddingService = uniCloud.importObject('weddingService');
+
+			const photoTagListResult = await weddingService.getPhotoTags();
+
+			if (photoTagListResult.code === 200) {
+				const data = photoTagListResult.data;
+				tags.value = data;
+			} else {
+				console.error('获取获取相册tags失败:', photoTagListResult.message);
+			}
+		} catch (error) {
+			console.error('调用云对象失败:', error);
+		} finally {
+			loading.value = false;
+		}
+	}
+
 	// 获取所有数据
-	// async function fetchAllData() {
-	// 	loading.value = true;
-	// 	try {
-	// 		const photoService = uniCloud.importObject('photoService');
+	async function fetchImageData() {
+		loading.value = true;
+		try {
+			const weddingService = uniCloud.importObject('weddingService');
 
-	// 		// 获取标签
-	// 		const tagRes = await photoService.getTags();
-	// 		if (tagRes.code === 200) {
-	// 			tags.value = tagRes.data;
-	// 		}
+			// 获取所有图片
+			const mediaRes = await weddingService.getMedia();
+			if (mediaRes.code === 200) {
+				media.value = mediaRes.data;
 
-	// 		// 获取所有图片
-	// 		const photoRes = await photoService.getPhotos();
-	// 		if (photoRes.code === 200) {
-	// 			photos.value = photoRes.data.photos;
-
-	// 			// 批量获取临时 URL
-	// 			const fileIDs = photoRes.data.fileIDs;
-	// 			const urlRes = await uniCloud.getTempFileURL({
-	// 				fileIDs
-	// 			});
-
-	// 			// 构建 fileID -> URL 映射
-	// 			urlRes.fileList.forEach(file => {
-	// 				if (file.tempFileURL) {
-	// 					photoUrls.value[file.fileID] = file.tempFileURL;
-	// 				}
-	// 			});
-	// 		}
-	// 	} catch (error) {
-	// 		console.error('数据加载失败:', error);
-	// 	} finally {
-	// 		loading.value = false;
-	// 	}
-	// }
+				// 批量获取临时 URL
+				const fileIDs = mediaRes.data.map(media => media.fileId);
+				const urlRes = await uniCloud.getTempFileURL({
+					fileList: fileIDs
+				});
+				const urlMap = new Map(urlRes.fileList.map(item => [item.fileID, item.tempFileURL]));
+				media.value.forEach(item => {
+					item.url = urlMap.get(item.fileId) || ''; // 如果没找到 fileId，设为 ''
+				});
+			}
+		} catch (error) {
+			console.error('数据加载失败:', error);
+		} finally {
+			loading.value = false;
+		}
+	}
 
 	// 切换标签
 	async function handleTagClick(tag) {
@@ -113,7 +119,7 @@
 
 	// 图片加载完成（可做懒加载优化）
 	function onImageLoad(index) {
-		// 可记录已加载
+		//
 	}
 
 	// 图片加载失败

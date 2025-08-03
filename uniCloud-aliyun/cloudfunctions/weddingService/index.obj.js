@@ -54,5 +54,61 @@ module.exports = {
 				message: '更新失败'
 			};
 		}
+	},
+	
+	// 查询相册标签
+	getPhotoTags: async function() {
+		try {
+			const photoTagList = await db.collection('photo_tags').get();
+	
+			if (photoTagList.data.length === 0) {
+				return {
+					code: 404,
+					message: '相册标签未找到',
+					data: null
+				};
+			}
+	
+			return {
+				code: 200,
+				message: '成功获取相册标签',
+				data: photoTagList.data
+			};
+		} catch (error) {
+			console.error('获取婚礼详情失败', error);
+			return {
+				code: 500,
+				message: '服务器错误',
+				data: null
+			};
+		}
+	},
+	
+	// 查询媒体资源
+	getMedia: async function() {
+		try {
+			const mediaList = await db.collection('our_media').get();
+	
+			if (mediaList.data.length === 0) {
+				return {
+					code: 404,
+					message: '媒体资源未找到',
+					data: null
+				};
+			}
+	
+			return {
+				code: 200,
+				message: '成功获取媒体资源',
+				data: mediaList.data
+			};
+		} catch (error) {
+			console.error('获取媒体资源失败', error);
+			return {
+				code: 500,
+				message: '服务器错误',
+				data: null
+			};
+		}
 	}
 };
