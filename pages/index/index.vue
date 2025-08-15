@@ -9,19 +9,19 @@
 
 		<!-- 倒计时组件 -->
 		<Countdown :wedding-date="date" />
-		
+
 		<!-- 详情 -->
 		<view class="detail-container" v-if="Object.keys(weddingDetails).length">
 			<view class="detail-item" v-for="item, index of weddingDetails" :key="index">
 				<view class="detail-label">
 					{{item.label}}
 				</view>
-				<view :class="['detail-value', {'navigate': item.canNavigate}]" >
+				<view :class="['detail-value', {'navigate': item.canNavigate}]" @click="openModal">
 					{{item.value}}
 				</view>
 			</view>
 		</view>
-		
+
 		<!-- 欢迎语 -->
 		<view class="invitation">
 			<view class="invitation-text" v-for="text,idx in invitationText" :key="index">
@@ -44,6 +44,7 @@
 	const date = ref('');
 	const weddingDetails = ref({});
 	const invitationText = ref([]);
+	const showMapModal = ref(false);
 
 	// 调用云对象获取婚礼详情
 	async function fetchWeddingDetails() {
@@ -67,6 +68,11 @@
 		} catch (error) {
 			console.error('调用云对象失败:', error);
 		}
+	}
+	
+	// type: home/hotel
+	function openModal() {
+		// inputDialog.value.open();
 	}
 
 	onMounted(() => {

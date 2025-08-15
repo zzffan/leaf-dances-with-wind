@@ -6,11 +6,11 @@
                 v-if="prefixIcon || $slots.prefix"
             >
                 <slot name="prefix">
-                    <u-icon
+                    <up-icon
                         :name="prefixIcon"
                         size="18"
                         :customStyle="prefixIconStyle"
-                    ></u-icon>
+                    ></up-icon>
                 </slot>
             </view>
             <view class="u-input__content__field-wrapper" @tap="clickHandler">
@@ -34,6 +34,7 @@
             	    :confirm-type="confirmType"
             	    :confirm-hold="confirmHold"
             	    :hold-keyboard="holdKeyboard"
+                    :cursor-color="cursorColor"
             	    :cursor-spacing="cursorSpacing"
             	    :adjust-position="adjustPosition"
             	    :selection-end="selectionEnd"
@@ -53,23 +54,23 @@
                 v-if="isShowClear"
                 @click="onClear"
             >
-                <u-icon
+                <up-icon
                     name="close"
                     size="11"
                     color="#ffffff"
                     customStyle="line-height: 12px"
-                ></u-icon>
+                ></up-icon>
             </view>
             <view
                 class="u-input__content__subfix-icon"
                 v-if="suffixIcon || $slots.suffix"
             >
                 <slot name="suffix">
-                    <u-icon
+                    <up-icon
                         :name="suffixIcon"
                         size="18"
                         :customStyle="suffixIconStyle"
-                    ></u-icon>
+                    ></up-icon>
                 </slot>
             </view>
         </view>
@@ -105,6 +106,7 @@ import { addStyle, addUnit, deepMerge, formValidate, $parent, sleep, os } from '
  * @property {Boolean}			autoBlur				键盘收起时，是否自动失去焦点，目前仅App3.0.0+有效 （ 默认 false ）
  * @property {Boolean}			disableDefaultPadding	是否去掉 iOS 下的默认内边距，仅微信小程序，且type=textarea时有效 （ 默认 false ）
  * @property {String ｜ Number}	cursor					指定focus时光标的位置（ 默认 140 ）
+ * @property {String }          cursorColor			    光标颜色
  * @property {String ｜ Number}	cursorSpacing			输入框聚焦时底部与键盘的距离 （ 默认 30 ）
  * @property {String ｜ Number}	selectionStart			光标起始位置，自动聚集时有效，需与selection-end搭配使用 （ 默认 -1 ）
  * @property {String ｜ Number}	selectionEnd			光标结束位置，自动聚集时有效，需与selection-start搭配使用 （ 默认 -1 ）

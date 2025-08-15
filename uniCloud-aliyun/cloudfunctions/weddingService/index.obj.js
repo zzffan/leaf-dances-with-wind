@@ -88,7 +88,7 @@ module.exports = {
 	getMedia: async function() {
 		try {
 			const mediaList = await db.collection('our_media').get();
-	
+			
 			if (mediaList.data.length === 0) {
 				return {
 					code: 404,
@@ -96,11 +96,32 @@ module.exports = {
 					data: null
 				};
 			}
-	
+			
+			const list = mediaList.data || [];
+			
+			// 2. 分组
+			const hasOrder = [];
+			const noOrder = [];
+		
+			list.forEach(item => {
+			  // 判断是否有 order 字段且为有效数字
+			  if (item.order !== null && item.order !== undefined && typeof item.order === 'number') {
+				hasOrder.push(item);
+			  } else {
+				noOrder.push(item);
+			  }
+			});
+		
+			// 3. 对有 order 的数据按 order 升序排序
+			hasOrder.sort((a, b) => a.order - b.order);
+		
+			// 4. 合并：有 order 的在前，无 order 的在后（保持原序）
+			const sortedList = [...hasOrder, ...noOrder];
+
 			return {
 				code: 200,
 				message: '成功获取媒体资源',
-				data: mediaList.data
+				data: sortedList
 			};
 		} catch (error) {
 			console.error('获取媒体资源失败', error);

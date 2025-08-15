@@ -1,6 +1,7 @@
 {
 	"devDependencies": {
-		"dayjs": "^1.11.13"
+		"dayjs": "^1.11.13",
+		"sass": "^1.63.2"
 	},
 	"browserslist": [
 		"last 2 versions",

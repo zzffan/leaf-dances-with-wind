@@ -1,3 +1,117 @@
+## 3.4.94（2025-08-15）
+improvment: 组件库内部icon前缀统一
+
+## 3.4.93（2025-08-15）
+fix: 修复dropdown组件在打开下拉菜单时content高度为NANpx的问题
+
+## 3.4.92（2025-08-14）
+fix: 修复多余空格导致cropper编译出错 #830
+
+## 3.4.91（2025-08-14）
+feat: 新增agreement弹窗协议组件
+
+## 3.4.90（2025-08-13）
+feat: datetimepicker新增datehour类型
+
+## 3.4.89（2025-08-13）
+fix: 修复u-form-item组件缺少对labelPosition的判断
+
+## 3.4.88（2025-08-13）
+fix: subsection组件的disabled属性应为Boolean类型
+
+## 3.4.87（2025-08-12）
+improvment: 签名组件示例前缀改为up
+
+## 3.4.86（2025-08-12）
+feat: 新增signature签名签字组件
+
+## 3.4.85（2025-08-11）
+feat: 完善图片裁剪功能支持props及JS两种方式
+
+fix: 修复H5下裁剪后图片黑屏
+
+## 3.4.84（2025-08-11）
+feat: 新增cropper图片裁剪组件
+
+## 3.4.83（2025-08-11）
+feat: 新增barcode无三方依赖条码组
+
+## 3.4.82（2025-08-11）
+improvment: 优化table2递归组件逻辑
+
+feat: 支持树状列表复选框
+
+## 3.4.81（2025-08-10）
+feat: table2新增树状结构递归支持
+
+## 3.4.80（2025-08-10）
+feat: 新增table2固定列对树状支持
+
+## 3.4.79（2025-08-09）
+feat: table2组件支持左侧固定列功能
+
+## 3.4.78（2025-08-09）
+fix: 修复table2在popup弹窗中无法横向滚动
+
+## 3.4.77（2025-08-08）
+feat: 优化waterfall瀑布流组件逻辑
+
+feat: waterfall瀑布流组件支持多列
+
+feat: waterfall瀑布流组件支持响应式列数
+
+## 3.4.76（2025-08-08）
+feat: 取消props中tabs组件默认颜色影响主题色生效
+
+fix: 修复parse富文本组件报错$options
+
+feat: timeFormat时间格式化方法支持UTC格式时间 #596
+
+## 3.4.75（2025-08-07）
+feat: 新增loadFontOnce参数控制是否全局只加载一次字体图标
+
+## 3.4.74（2025-08-07）
+feat: input组件新增cursorColor属性
+
+## 3.4.73（2025-08-05）
+improvment: 优化下拉刷新默认图标
+
+## 3.4.72（2025-08-05）
+improvment: 优化virtual-list虚拟列表样式
+
+feat: 新增virtual-list虚拟列表演示
+
+## 3.4.71（2025-08-05）
+feat: 新增virtual-list虚拟列表组件
+
+feat: 新增pull-refresh下拉刷新结合虚拟列表使用
+
+## 3.4.70（2025-08-05）
+fix: 修复qrcode组件长按事件传入错误cid导致的报错
+
+fix: 修复index-list组件key为undefined导致的索引报错消失
+
+## 3.4.69（2025-08-04）
+feat: pull-refresh下拉刷新新增上拉加载特性
+
+## 3.4.68（2025-08-03）
+feat: 新增pull-refresh下拉刷新组件
+
+## 3.4.67（2025-08-02）
+feat: number-box支持disabledBgColor参数
+
+## 3.4.66（2025-08-01）
+improvment: 增加组件图标
+
+feat: table2组件新增列排序插槽
+
+fix: 分段器组件onWindowResize使用条件编译
+
+fix: 修复u-line-1单行省略样式
+
+## 3.4.65（2025-07-26）
+fix: 修复部分环境下字体图标全局加载问题
+
 ## 3.4.64（2025-07-25）
 feat: 新增dragsort拖动排序组件
 
