@@ -134,14 +134,14 @@
 	onShareAppMessage(() => {
 		return {
 			title: '我们的婚纱照，快来围观～',
-			path: '/page/gallery/index'
+			path: '/pages/gallery/index'
 		}
 	})
 	
 	onShareTimeline(() => {
 		return {
 			title: '我们的婚纱照，快来围观～',
-			path: '/page/gallery/index'
+			path: '/pages/gallery/index'
 		}
 	})
 </script>

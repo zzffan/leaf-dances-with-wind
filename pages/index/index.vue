@@ -87,14 +87,14 @@
 	onShareAppMessage(() => {
 		return {
 			title: '我们的婚礼，诚邀亲朋好友参加～',
-			path: '/page/index/index'
+			path: '/pages/index/index'
 		}
 	})
 
 	onShareTimeline(() => {
 		return {
 			title: '我们的婚礼，诚邀亲朋好友参加～',
-			path: '/page/index/index'
+			path: '/pages/index/index'
 		}
 	})
 
