@@ -16,7 +16,10 @@
 				<view class="detail-label">
 					{{item.label}}
 				</view>
-				<view :class="['detail-value', {'navigate': item.canNavigate}]" @click="openModal">
+				<view 
+					:class="['detail-value', {'navigate': item.canNavigate}]" 
+					@click="openMap(item.location)"
+				>
 					{{item.value}}
 				</view>
 			</view>
@@ -36,6 +39,10 @@
 		ref,
 		onMounted
 	} from 'vue';
+	import {
+		onShareAppMessage,
+		onShareTimeline
+	} from '@dcloudio/uni-app';
 	import Countdown from '@/components/Countdown';
 
 	const bride = ref('');
@@ -69,11 +76,27 @@
 			console.error('调用云对象失败:', error);
 		}
 	}
-	
-	// type: home/hotel
-	function openModal() {
-		// inputDialog.value.open();
+
+	function openMap(location) {
+		uni.openLocation({
+			...location,
+			scale: 18
+		});
 	}
+
+	onShareAppMessage(() => {
+		return {
+			title: '我们的婚礼，诚邀亲朋好友参加～',
+			path: '/page/index/index'
+		}
+	})
+
+	onShareTimeline(() => {
+		return {
+			title: '我们的婚礼，诚邀亲朋好友参加～',
+			path: '/page/index/index'
+		}
+	})
 
 	onMounted(() => {
 		fetchWeddingDetails();

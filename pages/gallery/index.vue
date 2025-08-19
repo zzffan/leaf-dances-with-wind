@@ -38,6 +38,10 @@
 		onMounted,
 		computed
 	} from 'vue';
+	import {
+		onShareAppMessage,
+		onShareTimeline
+	} from '@dcloudio/uni-app';
 
 	const tags = ref([]);
 	const media = ref([]); // 所有媒体数据（含 fileID）
@@ -126,6 +130,20 @@
 	function onImageError(index) {
 		// 可设置默认图
 	}
+	
+	onShareAppMessage(() => {
+		return {
+			title: '我们的婚纱照，快来围观～',
+			path: '/page/gallery/index'
+		}
+	})
+	
+	onShareTimeline(() => {
+		return {
+			title: '我们的婚纱照，快来围观～',
+			path: '/page/gallery/index'
+		}
+	})
 </script>
 
 <style scoped lang="scss">

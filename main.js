@@ -11,6 +11,7 @@ const app = new Vue({
 })
 app.use(uviewPlus)
 app.$mount()
+// 仅微信小程序生效
 // #endif
 
 // #ifdef VUE3
