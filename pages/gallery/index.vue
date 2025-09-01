@@ -17,11 +17,11 @@
 		<!-- 瀑布流图片 -->
 		<view class="photo-grid">
 			<view v-for="(item, index) in photoList" :key="item._id" class="photo-item">
-				<image v-if="item.type === 'img'" :src="item.url" mode="widthFix" class="photo-image"
+				<image v-if="item.type === 'img'" :src="item.tempFileURL" mode="widthFix" class="photo-image"
 					@load="onImageLoad(index)" @error="onImageError(index)"></image>
 
 				<!-- 视频 -->
-				<video v-if="item.type === 'video'" :src="item.url" class="feed-video" :controls="true" />
+				<video v-if="item.type === 'video'" :src="item.tempFileURL" class="feed-video" :controls="true" />
 			</view>
 		</view>
 
@@ -96,17 +96,10 @@
 			// 获取所有图片
 			const mediaRes = await weddingService.getMedia();
 			if (mediaRes.code === 200) {
-				media.value = mediaRes.data;
-
-				// 批量获取临时 URL
-				const fileIDs = mediaRes.data.map(media => media.fileId);
-				const urlRes = await uniCloud.getTempFileURL({
-					fileList: fileIDs
-				});
-				const urlMap = new Map(urlRes.fileList.map(item => [item.fileID, item.tempFileURL]));
-				media.value.forEach(item => {
-					item.url = urlMap.get(item.fileId) || ''; // 如果没找到 fileId，设为 ''
-				});
+				
+				media.value = mediaRes.data.fileList;
+				
+				console.log(media.value, 'media.value')
 			}
 		} catch (error) {
 			console.error('数据加载失败:', error);

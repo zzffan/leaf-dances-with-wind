@@ -1,8 +1,12 @@
 {
-	"name": "weddingService",
-	"dependencies": {},
-	"keywords": ["uniCloud", "cloud-object"],
-	"extensions": {
-		"uni-cloud-jql": {}
-	}
+  "name": "weddingService",
+  "dependencies": {},
+  "keywords": [
+    "uniCloud",
+    "cloud-object"
+  ],
+  "extensions": {
+    "uni-cloud-jql": {},
+    "uni-cloud-ext-storage": {}
+  }
 }

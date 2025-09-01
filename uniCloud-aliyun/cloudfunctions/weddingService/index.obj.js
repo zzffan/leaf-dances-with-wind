@@ -87,6 +87,11 @@ module.exports = {
 	// 查询媒体资源
 	getMedia: async function() {
 		try {
+			const extStorageManager = uniCloud.getExtStorageManager({
+				provider: "qiniu",
+				domain: "zzffan.cn", // 域名地址
+			});
+			
 			const mediaList = await db.collection('our_media').get();
 			
 			if (mediaList.data.length === 0) {
@@ -117,11 +122,25 @@ module.exports = {
 		
 			// 4. 合并：有 order 的在前，无 order 的在后（保持原序）
 			const sortedList = [...hasOrder, ...noOrder];
-
+			
+			let dataList = extStorageManager.getTempFileURL({
+				fileList: sortedList.map(data => {
+					return data.fileId;
+				}), // 文件地址列表
+			});
+			
+			dataList.fileList.forEach(data => {
+				sortedList.forEach(item => {
+					data.type = item.type;
+					data.tag = item.tag;
+					data.order = item.order;
+				})
+			})
+			
 			return {
 				code: 200,
 				message: '成功获取媒体资源',
-				data: sortedList
+				data: dataList
 			};
 		} catch (error) {
 			console.error('获取媒体资源失败', error);
