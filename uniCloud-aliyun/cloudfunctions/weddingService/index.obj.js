@@ -134,6 +134,7 @@ module.exports = {
 					data.type = item.type;
 					data.tag = item.tag;
 					data.order = item.order;
+					data.tempFileURL = data.tempFileURL.split('?')[0] + '?imageslim/zlevel/3';
 				})
 			})
 			
