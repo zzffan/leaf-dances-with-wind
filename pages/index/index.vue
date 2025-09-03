@@ -86,15 +86,17 @@
 
 	onShareAppMessage(() => {
 		return {
-			title: '我们的婚礼，诚邀亲朋好友参加～',
-			path: '/pages/index/index'
+			title: '诚邀您参加我们的婚礼 🤍 期待您的见证与祝福',
+			path: '/pages/index/index',
+			imageUrl: 'https://zzffan.cn/poster/82ac558674ef326b5f3134764b79bc78 (1).png'
 		}
 	})
 
 	onShareTimeline(() => {
 		return {
-			title: '我们的婚礼，诚邀亲朋好友参加～',
-			path: '/pages/index/index'
+			title: '我们结婚啦！诚邀亲朋好友共赴婚礼之约 💍',
+			path: '/pages/index/index',
+			imageUrl: 'https://zzffan.cn/poster/82ac558674ef326b5f3134764b79bc78 (1).png'
 		}
 	})
 

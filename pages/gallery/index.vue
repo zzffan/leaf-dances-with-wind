@@ -126,15 +126,17 @@
 	
 	onShareAppMessage(() => {
 		return {
-			title: '我们的婚纱照，快来围观～',
-			path: '/pages/gallery/index'
+			title: '我们的婚纱照来啦！快来围观甜蜜瞬间 📸💐',
+			path: '/pages/gallery/index',
+			imageUrl: 'https://zzffan.cn/poster/82ac558674ef326b5f3134764b79bc78 (1).png'
 		}
 	})
 	
 	onShareTimeline(() => {
 		return {
-			title: '我们的婚纱照，快来围观～',
-			path: '/pages/gallery/index'
+			title: '婚纱照甜蜜发布 💍 快来见证我们的幸福时刻 ✨️',
+			path: '/pages/gallery/index',
+			imageUrl: 'https://zzffan.cn/poster/82ac558674ef326b5f3134764b79bc78 (1).png'
 		}
 	})
 </script>
