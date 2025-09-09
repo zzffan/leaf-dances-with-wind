@@ -29,6 +29,8 @@
 		<!-- 加载状态 -->
 		<view v-if="loading" class="loading">加载中...</view>
 		<view v-if="!loading && media.length === 0" class="empty">暂无媒体资源</view>
+		
+		<GlobalPlayer />
 	</view>
 </template>
 

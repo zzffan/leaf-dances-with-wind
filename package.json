@@ -10,6 +10,7 @@
 		"maintained node versions"
 	],
 	"dependencies": {
+		"pinia": "^3.0.3",
 		"update-browserslist-db": "^1.1.3"
 	}
 }

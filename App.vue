@@ -1,7 +1,14 @@
+<template>
+	<view>
+	    <slot></slot>
+	  </view>
+</template>
+
 <script>
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			console.log(this)
 		},
 		onShow: function() {
 			console.log('App Show')

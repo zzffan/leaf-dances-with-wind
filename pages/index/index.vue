@@ -31,6 +31,8 @@
 				{{text}}
 			</view>
 		</view>
+		
+		<GlobalPlayer />
 	</view>
 </template>
 

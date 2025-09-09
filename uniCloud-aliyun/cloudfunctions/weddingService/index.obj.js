@@ -56,7 +56,7 @@ module.exports = {
 		}
 	},
 	
-	// 查询相册标签
+	// 查询BGM
 	getPhotoTags: async function() {
 		try {
 			const photoTagList = await db.collection('photo_tags').get();
@@ -64,14 +64,14 @@ module.exports = {
 			if (photoTagList.data.length === 0) {
 				return {
 					code: 404,
-					message: '相册标签未找到',
+					message: 'BGM未找到',
 					data: null
 				};
 			}
 	
 			return {
 				code: 200,
-				message: '成功获取相册标签',
+				message: '成功获取BGM',
 				data: photoTagList.data
 			};
 		} catch (error) {
@@ -151,5 +151,33 @@ module.exports = {
 				data: null
 			};
 		}
-	}
+	},
+	
+	// bgm获取
+	getBgmList: async function() {
+		try {
+			const bgmList = await db.collection('background_music').get();
+	
+			if (bgmList.data.length === 0) {
+				return {
+					code: 404,
+					message: 'BGM未找到',
+					data: null
+				};
+			}
+	
+			return {
+				code: 200,
+				message: '成功获取BGM',
+				data: bgmList.data.map(item => item.url)
+			};
+		} catch (error) {
+			console.error('获取BGM失败', error);
+			return {
+				code: 500,
+				message: '服务器错误',
+				data: null
+			};
+		}
+	},
 };
