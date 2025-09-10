@@ -18,6 +18,7 @@ export const usePlayerStore = defineStore('player', {
 			if (!this.audio) {
 				this.audio = uni.createInnerAudioContext()
 				this.audio.autoplay = false
+				this.audio.obeyMuteSwitch = false
 
 				this.audio.onPlay(() => {
 					this.isPlaying = true
